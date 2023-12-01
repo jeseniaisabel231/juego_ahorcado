@@ -2,6 +2,13 @@ import java.util.Scanner;
 import java.util.Random;
 
 public class Main {
+
+    public  static final String Blue = "\33[94m";
+    public  static final String Black = "\33[90m";
+    public  static final String Red = "\33[91m";
+    public  static final String Green = "\33[92m";
+    public  static final String Reset = "\33[0m";
+
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
@@ -15,8 +22,13 @@ public class Main {
 
         char[] guess = new char[letters];
 
+        for(int i = 0; i < letters; i++){
+            guess[i] = '_';
+        }
+
+        int attempts = 7;
+
+        System.out.println(Black +"\nBienvenido al juego del ahorcado");
+        
     }
-
-
-
-    }
+}
