@@ -27,8 +27,17 @@ public class Main {
         }
 
         int attempts = 7;
-
         System.out.println(Black +"\nBienvenido al juego del ahorcado");
+
+        while(true){
+            System.out.println(Black + "\nIntentos restantes: " + Reset +attemts);
+            System.out.println(Blue + "La palabra a adivinar es: " + Reset + new String(guess));
+            System.out.println(Blue + "\nIngresa una letra: " + Reset);
+
+            char userInput = sc.next().charAt(0);
+            userInput=Character.toLowerCase(userInput);
+            boolean found = false;
+        }
         
     }
 }
