@@ -22,25 +22,25 @@ public class Main {
 
         char[] guess = new char[letters];
 
-        for(int i = 0; i < letters; i++){
+        for (int i = 0; i < letters; i++) {
             guess[i] = '_';
         }
 
         int attempts = 7;
-        System.out.println(Black +"\nBienvenido al juego del ahorcado");
+        System.out.println(Black + "\nBienvenido al juego del ahorcado");
 
-        while(true){
+        while (true) {
             System.out.println(Black + "\nIntentos restantes: " + Reset + attempts);
             System.out.println(Blue + "La palabra a adivinar es: " + Reset + new String(guess));
             System.out.println(Blue + "\nIngresa una letra: " + Reset);
 
             char userInput = sc.next().charAt(0);
-            userInput=Character.toLowerCase(userInput);
+            userInput = Character.toLowerCase(userInput);
             boolean found = false;
 
-            for(int i = 0; i < letters; i++){
-                if (word.charAt(i) == userInput){
-                    if (i == 0){
+            for (int i = 0; i < letters; i++) {
+                if (word.charAt(i) == userInput) {
+                    if (i == 0) {
                         guess[i] = Character.toUpperCase(userInput);
                     } else {
                         guess[i] = userInput;
@@ -49,9 +49,9 @@ public class Main {
                 }
             }
 
-            if (!found){
+            if (!found) {
 
-                switch (attempts){
+                switch (attempts) {
                     case 7:
                         System.out.println(Black + """
                                 \nAhorcado\n--|
@@ -96,6 +96,14 @@ public class Main {
                         break;
                 }
                 attempts--;
+            }
+            String correct = word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
+            if (attemps <= 0) {
+                System.out.println(Red + "\nPerdiste!! La palabra completa era: " + Reset + correct);
+                break;
+            } else if (new String(guess).equals(correct)) {
+                System.out.println(Green + "\nGanaste!! La palabra completa es: " + Reset + correct);
+                break;
             }
         }
     }
