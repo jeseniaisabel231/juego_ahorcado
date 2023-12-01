@@ -32,7 +32,7 @@ public class Main {
         while (true) {
             System.out.println(Black + "\nIntentos restantes: " + Reset + attempts);
             System.out.println(Blue + "La palabra a adivinar es: " + Reset + new String(guess));
-            System.out.println(Blue + "\nIngresa una letra: " + Reset);
+            System.out.print(Blue + "\nIngresa una letra: " + Reset);
 
             char userInput = sc.next().charAt(0);
             userInput = Character.toLowerCase(userInput);
@@ -53,52 +53,31 @@ public class Main {
 
                 switch (attempts) {
                     case 7:
-                        System.out.println(Black + """
-                                \nAhorcado\n--|
-                                | """);
+                        System.out.println(Black + "\nAhorcado\n--|\n|");
                         break;
                     case 6:
-                        System.out.println(Black + """
-                                \nAhorcado\n--|
-                                | O""");
+                        System.out.println(Black + "\nAhorcado\n--|\n| O");
                         break;
                     case 5:
-                        System.out.println(Black + """
-                                \nAhorcado\n--|
-                                | O 
-                                 /""");
+                        System.out.println(Black + "\nAhorcado\n--|\n| O \n /");
                         break;
                     case 4:
-                        System.out.println(Black + """
-                                \nAhorcado\n--|
-                                | O 
-                                 /|""");
+                        System.out.println(Black + "\nAhorcado\n--|\n| O \n /|");
                         break;
                     case 3:
-                        System.out.println(Black + """
-                                \nAhorcado\n--|
-                                | O 
-                                 /|\\""");
+                        System.out.println(Black + "\nAhorcado\n--|\n| O \n /|\\");
                         break;
                     case 2:
-                        System.out.println(Black + """
-                                \nAhorcado\n--|
-                                | O 
-                                 /|\\
-                                 /""");
+                        System.out.println(Black + "\nAhorcado\n--|\n| O \n /|\\\n / ");
                         break;
                     case 1:
-                        System.out.println(Black + """
-                                \nAhorcado\n--|
-                                | O 
-                                 /|\\
-                                 / \\""");
+                        System.out.println(Black + "\nAhorcado\n--|\n| O \n /|\\\n / \\");
                         break;
                 }
                 attempts--;
             }
             String correct = word.substring(0, 1).toUpperCase() + word.substring(1).toLowerCase();
-            if (attemps <= 0) {
+            if (attempts <= 0) {
                 System.out.println(Red + "\nPerdiste!! La palabra completa era: " + Reset + correct);
                 break;
             } else if (new String(guess).equals(correct)) {
