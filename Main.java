@@ -30,14 +30,73 @@ public class Main {
         System.out.println(Black +"\nBienvenido al juego del ahorcado");
 
         while(true){
-            System.out.println(Black + "\nIntentos restantes: " + Reset +attemts);
+            System.out.println(Black + "\nIntentos restantes: " + Reset + attempts);
             System.out.println(Blue + "La palabra a adivinar es: " + Reset + new String(guess));
             System.out.println(Blue + "\nIngresa una letra: " + Reset);
 
             char userInput = sc.next().charAt(0);
             userInput=Character.toLowerCase(userInput);
             boolean found = false;
+
+            for(int i = 0; i < letters; i++){
+                if (word.charAt(i) == userInput){
+                    if (i == 0){
+                        guess[i] = Character.toUpperCase(userInput);
+                    } else {
+                        guess[i] = userInput;
+                    }
+                    found = true;
+                }
+            }
+
+            if (!found){
+
+                switch (attempts){
+                    case 7:
+                        System.out.println(Black + """
+                                \nAhorcado\n--|
+                                | """);
+                        break;
+                    case 6:
+                        System.out.println(Black + """
+                                \nAhorcado\n--|
+                                | O""");
+                        break;
+                    case 5:
+                        System.out.println(Black + """
+                                \nAhorcado\n--|
+                                | O 
+                                 /""");
+                        break;
+                    case 4:
+                        System.out.println(Black + """
+                                \nAhorcado\n--|
+                                | O 
+                                 /|""");
+                        break;
+                    case 3:
+                        System.out.println(Black + """
+                                \nAhorcado\n--|
+                                | O 
+                                 /|\\""");
+                        break;
+                    case 2:
+                        System.out.println(Black + """
+                                \nAhorcado\n--|
+                                | O 
+                                 /|\\
+                                 /""");
+                        break;
+                    case 1:
+                        System.out.println(Black + """
+                                \nAhorcado\n--|
+                                | O 
+                                 /|\\
+                                 / \\""");
+                        break;
+                }
+                attempts--;
+            }
         }
-        
     }
 }
